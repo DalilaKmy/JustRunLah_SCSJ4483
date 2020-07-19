@@ -1,0 +1,151 @@
+<!-- PART: Mimi Farhana (B17CS3007) -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Boostrap files -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<!-- Boostrap files -->
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffee88;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+/*Button*/
+#myButton{
+            width: 20vw;
+            margin-left: 1.2em;
+            margin-top: 1.2em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>JustRunLah.COM</h1>
+<hr>
+
+<h2>RUN NEWS</h2>
+<p>Log your race results. Track your progress. Enjoy discounts.</p>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="image/larianbomba.jpg" alt="Mountains" style="width:100%">
+      <h3>Larian Bersama Bomba</h3>
+        <h5>TeamJustRunLah!<em> -Ogos 17,2019</em></h5>
+        <p>YURAN RM35-RM70 *Hadiah Wang Tunai untuk Dimenangi*</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="image/lariannegaraku.jpg" alt="Lights" style="width:100%">
+      <h3>Larian Negaraku</h3>
+      <h5>TeamJustRunLah!<em> -Ogos 03,2019</em></h5>
+      <p>Dataran Merdeka Kuala Lumpur | 7KM </p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="image/runforunity.jpg" alt="Nature" style="width:100%">
+      <h3>Run For Unity</h3>
+      <h5>TeamJustRunLah!<em> -April 19,2019</em></h5>
+      <p>Categories 6KM and 10KM | MEN & WOMEN</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="image/adrenalinerun.jpeg" alt="Mountains" style="width:100%">
+      <h3>Adrenaline Run 3.0</h3>
+      <h5>TeamJustRunLah!<em> -April 11,2020</em></h5>
+      <p>GRAND LUCKY DRAW! | by JKM2019/2020 KTC </p>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<div class="content">
+  <img src="image/fru2020.JPG" alt="Bear" style="width:100%">
+  <h3>Run For Unity 2020</h3>
+  <h5>TeamJustRunLah!<em> -April 19,2019</em></h5>
+      <p>Stadium Azman Hashim, UTM</p>
+  <p>This event was held by PERSAKA UTM, School of Computing. All participants will get Runner's Entitlement.
+      The winners will got prizes (CASH & TROPHY)
+  </p>
+</div>
+<div class="row justify-content-md-center">
+    <button id="myButton" class="btn btn-warning" onclick="location.href='./index.html'">Back</button>
+</div>
+<!-- END MAIN -->
+</div>
+
+</body>
+</html>
+<!-- Boostrap files -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Boostrap files -->

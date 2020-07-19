@@ -1,0 +1,74 @@
+<!-- PART: Liyana Aziz (A16CS0067) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+    
+    <form id="form-login" class="login-form">
+        
+        <h1>Login</h1>
+
+        <div class="txtb">
+            <input type="email" id="getemail" name="email" required>
+            <span data-placeholder="Email"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="password" id="getpassword" name="password" required>
+            <span data-placeholder="Password"></span>
+        </div>
+
+        <button type="submit" class="logbtn" id="login-btn" onclick="location.href='./upcomingrun.html'">Login</button>
+
+        <div class="bottom-text">
+            Don't have account? <a href="register.html">Sign up</a>
+        </div>
+
+    </form>
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+          $(this).addClass("focus");
+        });
+  
+        $(".txtb input").on("blur",function(){
+          if($(this).val() == "")
+          $(this).removeClass("focus");
+        });
+
+    </script>
+
+    <script>
+
+        $('#login-btn').click(function (){
+            //event.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/justrunlah/api/login.php?email=&password=" + $('#getemail').val()+$('#getpassword').val(),
+                // 
+                dataType: "json",
+                success: function (data, status, xhr) {
+
+                    alert('ok, successfully login');
+                    window.location.href = "index.html";
+
+                },
+
+                error: function () {
+                    alert(status);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

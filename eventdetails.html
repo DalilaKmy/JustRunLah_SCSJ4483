@@ -1,0 +1,424 @@
+<!-- PART: Natasha Hanafi (B17CS3019) -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <!-- Boostrap files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Boostrap files -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Race !</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <!-- CSS STYLE SECTION STARTS HERE  -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffee88;
+        }
+
+        .p {
+            margin-left: 10px;
+        }
+
+        .head {
+            width: 50%;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin: 2px;
+            padding: 20px;
+            margin: auto;
+        }
+
+        .nav-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 2fr);
+            width: 80%;
+            margin: auto;
+        }
+
+        .link {
+            text-decoration: none;
+            font-size: small;
+            font-weight: normal;
+            color: wheat;
+            text-align: center;
+            /*background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(9, 9, 9, 0.9));*/
+            background-color: #343a40;
+            margin: 1px;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+        .container {
+            /*background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(9, 9, 9, 0.6));*/
+            background-color: #fcfcfc;           
+            width: 95%;
+            /* height: 400px; */
+            display: none;
+            padding: 10px;
+            margin: auto;
+            margin-left: 2px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-Lesson {
+            display: block;
+        }
+
+        .toggle-button {
+            background: lightslategray;
+            color: black;
+        }
+
+        .btn-def {
+            padding: 3px 10px 5px 10px;
+            border-radius: 5px;
+            /* margin: 10px; */
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 2px;
+        }
+
+        #myButton{
+            width: 10vw;
+            margin-left: 1.0em;
+            margin-top: 1.0em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+
+<body>
+
+    
+      <div class="head">
+        <h1>Find Race</em></h1>
+    </div>
+    <div class="nav-bar">
+        <a href="#btn1" class="link" id="btn-1"><h6>Larian Bersama Bomba</h6></a>
+        <a href="#btn2" class="link" id="btn-2"><h6>Larian Negaraku</h6></a>
+        <a href="#btn3" class="link" id="btn-3"><h6>Adrenaline Run</h6></a>
+        <a href="#btn4" class="link" id="btn-4"><h6>Run For Unity</h6></a>
+        
+    </div>
+
+    <!-- HTML - PAGE LAYOUT START HERE -->
+    <!-- HTML CODE FOR Lesson 1.-->
+    <div class="container" id="btn1">
+        <p id="p-les01-array"></p>
+
+        <!-- <input type="text" id="getuserid" > -->
+    </br>
+        
+    </div>
+
+    <!-- HTML CODE FOR Lesson 2. -->
+    <div class="container" id="btn2">
+        <p id="p-les02-array"></p>
+    </br>
+        
+    </div>
+
+    <!-- HTML CODE FOR Lesson 3.-->
+    <div class="container" id="btn3">
+        <p id="p-les03-array"></p>
+    </br>
+        
+    </div>
+
+    <!-- HTML CODE FOR Lesson 4. -->
+    <div class="container" id="btn4">
+        <p id="p-les04-array"></p>
+    </br>
+        
+    </div>
+
+    <button id="myButton" class="btn btn-warning" onclick="location.href='./index.html'">Back</button>
+
+
+    <!-- JAVASCRIPT SECTION - STARTS HERE  -->
+    <script>
+        $(document).ready(function () {
+            const btn = document.querySelectorAll(".link");
+            btn[0].addEventListener("click", function () {
+                document.querySelector('#btn1').classList.toggle('toggle-Lesson');
+                document.querySelector('#btn-1').classList.toggle('toggle-button');
+            });
+            btn[1].addEventListener("click", function () {
+                document.querySelector('#btn2').classList.toggle('toggle-Lesson');
+                document.querySelector('#btn-2').classList.toggle('toggle-button');
+            });
+            btn[2].addEventListener("click", function () {
+                document.querySelector('#btn3').classList.toggle('toggle-Lesson');
+                document.querySelector('#btn-3').classList.toggle('toggle-button');
+            });
+            btn[3].addEventListener("click", function () {
+                document.querySelector('#btn4').classList.toggle('toggle-Lesson');
+                document.querySelector('#btn-4').classList.toggle('toggle-button');
+            });
+            
+            ////////////////////////////////////////////////////////////////////////////////
+            //   Code for Lesson 1 - handle ajax request on button click 
+            // $('#btn-les01-single').click(function () {
+            //     alert('get single json object');
+            // });
+
+            $('#btn-1').click(function () {
+               $.ajax({
+                type: "GET",
+                url: "http://localhost/justrunlah/api/getalluser.php",
+                dataType: "json",
+                success: function (data, status, xhr) {
+                    // alert('capaian data ok');
+                    var prettyContent = '<ul>';
+
+                        if (data.id = 1 ) {
+                        prettyContent += '<h2> <b>' + data[0].eventName + ' </b> </h2> <br>';
+                        prettyContent += '<img src="/image/larianbomba.jpg" alt="Bear" style="width:50%"> <br>';
+                        prettyContent += '<b>Date :</b> ' + data[0].eventDate + '<br>';
+                        prettyContent += '<b>Time :</b> ' + data[0].eventTime + '<br>';
+                        prettyContent += '<b>Venue :</b> ' + data[0].eventVenue + '<br>';
+                    
+                        prettyContent += '<br>';
+                        prettyContent += '<table>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<th> Category </th>';
+                        prettyContent += '<th> Distance </th>';
+                        prettyContent += '<th> Price </th>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[0].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[0].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[0].priceCatStudent + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[0].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[0].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[0].priceCatStudent1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[0].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[0].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[0].priceCatStaff + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[0].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[0].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[0].priceCatStaff1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '</table>';
+
+                        prettyContent += '<br>';
+                    }
+                    prettyContent += '</ul>';
+                    document.querySelector('#p-les01-array').innerHTML = prettyContent;
+                    // }
+                },
+                
+
+                error: function () {
+                    alert(status);
+                }
+            });
+        });
+        
+
+        $('#btn-2').click(function () {
+               $.ajax({
+                type: "GET",
+                url: "http://localhost/justrunlah/api/getalluser.php",
+                dataType: "json",
+                success: function (data, status, xhr) {
+                    // alert('capaian data ok');
+                    var prettyContent = '<ul>';
+
+                        if (data.id = 2 ) {
+                        prettyContent += '<h2> <b>' + data[1].eventName + ' </b> </h2> <br>';
+                        prettyContent += '<img src="/image/lariannegaraku.jpg" alt="Bear" style="width:50%"> <br>';
+                        prettyContent += '<b>Date :</b> ' + data[1].eventDate + '<br>';
+                        prettyContent += '<b>Time :</b> ' + data[1].eventTime + '<br>';
+                        prettyContent += '<b>Venue :</b> ' + data[1].eventVenue + '<br>';
+                    
+                        prettyContent += '<br>';
+                        prettyContent += '<table>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<th> Category </th>';
+                        prettyContent += '<th> Distance </th>';
+                        prettyContent += '<th> Price </th>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[1].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[1].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[1].priceCatStudent + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[1].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[1].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[1].priceCatStudent1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[1].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[1].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[1].priceCatStaff + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[1].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[1].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[1].priceCatStaff1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '</table>';
+
+                        prettyContent += '<br>';
+                    }
+                    prettyContent += '</ul>';
+                    document.querySelector('#p-les02-array').innerHTML = prettyContent;
+                },
+
+                error: function () {
+                    alert(status);
+                }
+            });
+        });
+
+        $('#btn-3').click(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/justrunlah/api/getalluser.php",
+                dataType: "json",
+                success: function (data, status, xhr) {
+                    // alert('capaian data ok');
+                    var prettyContent = '<ul>';
+
+                        if (data.id = 3 ) {
+                        prettyContent += '<h2> <b>' + data[2].eventName + ' </b> </h2> <br>';
+                        prettyContent += '<img src="/image/adrenalinerun.jpeg" alt="Bear" style="width:50%"> <br>';
+                        prettyContent += '<b>Date :</b> ' + data[2].eventDate + '<br>';
+                        prettyContent += '<b>Time :</b> ' + data[2].eventTime + '<br>';
+                        prettyContent += '<b>Venue :</b> ' + data[2].eventVenue + '<br>';
+                    
+                        prettyContent += '<br>';
+                        prettyContent += '<table>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<th> Category </th>';
+                        prettyContent += '<th> Distance </th>';
+                        prettyContent += '<th> Price </th>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[2].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[2].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[2].priceCatStudent + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[2].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[2].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[2].priceCatStudent1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[2].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[2].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[2].priceCatStaff + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[2].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[2].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[2].priceCatStaff1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '</table>';
+                        prettyContent += '<br>';
+                    }
+                    prettyContent += '</ul>';
+                    document.querySelector('#p-les03-array').innerHTML = prettyContent;
+                },
+
+                error: function () {
+                    alert(status);
+                }
+            });
+        });
+
+        $('#btn-4').click(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/justrunlah/api/getalluser.php",
+                dataType: "json",
+                success: function (data, status, xhr) {
+                    // alert('capaian data ok');
+                    var prettyContent = '<ul>';
+
+                        if (data.id = 4 ) {
+                        prettyContent += '<h2> <b>' + data[3].eventName + ' </b> </h2> <br>';
+                        prettyContent += '<img src="/image/fru2020.JPG" alt="Bear" style="width:50%"> <br>';
+                        prettyContent += '<b>Date :</b> ' + data[3].eventDate + '<br>';
+                        prettyContent += '<b>Time :</b> ' + data[3].eventTime + '<br>';
+                        prettyContent += '<b>Venue : </b>' + data[3].eventVenue + '<br>';
+                    
+                        prettyContent += '<br>';
+                        prettyContent += '<table>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<th> Category </th>';
+                        prettyContent += '<th> Distance </th>';
+                        prettyContent += '<th> Price </th>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[3].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[3].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[3].priceCatStudent + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[3].catDetails1 + '</td>';
+                        prettyContent += '<td>' + data[3].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[3].priceCatStudent1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[3].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[3].distance1 + ' KM </td>';
+                        prettyContent += '<td>' + data[3].priceCatStaff + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '<tr>';
+                        prettyContent += '<td>' + data[3].catDetails2 + '</td>';
+                        prettyContent += '<td>' + data[3].distance2 + ' KM </td>';
+                        prettyContent += '<td>' + data[3].priceCatStaff1 + '</td>';
+                        prettyContent += '</tr>';
+                        prettyContent += '</table>';
+
+                        prettyContent += '<br>';
+                    }
+                    prettyContent += '</ul>';
+                    document.querySelector('#p-les04-array').innerHTML = prettyContent;
+                },
+
+                error: function () {
+                    alert(status);
+                }
+            });
+        });
+
+    });
+
+        
+
+
+    </script>
+</body>
+</html>
