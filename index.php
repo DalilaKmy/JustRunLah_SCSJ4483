@@ -1,5 +1,6 @@
 <?php
 //PART: Dalila Al-Husna (A16CS0032)
+include_once("index.html");
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
